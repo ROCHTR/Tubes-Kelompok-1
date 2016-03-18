@@ -33,19 +33,25 @@ public class Gudang {
     }
 
     public void removeBarang(int indeks) {
-        if (daftarBarang[indeks] != null) {
-            if (daftarBarang[indeks + 1] == null) {
-                daftarBarang[indeks] = null;
-            } 
-            else {
-                for(int i=indeks;i<maxCapacity && daftarBarang[indeks+1]!=null;i++){
-                    daftarBarang[i] = kelas[i+1];
-                    daftarBarang[i+1] = null;
-                }
-
-            }
+//        if (daftarBarang[indeks] != null) {
+//            if (daftarBarang[indeks + 1] == null) {
+//                daftarBarang[indeks] = null;
+//            } 
+//            else {
+//                for(int i=indeks;i<maxCapacity && daftarBarang[indeks+1]!=null;i++){
+//                    daftarBarang[i] = kelas[i+1];
+//                    daftarBarang[i+1] = null;
+//                }
+//
+//            }
+//        }
+//
+//    }
+        for (int i = indeks+1; i < this.jumlah; i++) {
+            daftarBarang[i-1] = daftarBarang[i];
+            
         }
+        this.jumlah--;
 
-    }
-
+        }
 }
