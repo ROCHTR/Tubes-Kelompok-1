@@ -12,15 +12,13 @@ public class Penyedia extends Orang {
     Barang[] daftarBarang;
     private String asalPerusahaan;
     private String sandi;
-    private long IdPenyedia;
     private int maxBarang;
     private int jmlBarang;
 
-    public Penyedia(String nama, String tempatLahir, String tglLahir, String alamat,String asalPerusahaan, long IdPenyedia,String sandi ) {
-        super(nama, tempatLahir, tglLahir, alamat);
+    public Penyedia(String nama, String tempatLahir, String tglLahir, String alamat,String asalPerusahaan, long id,String sandi ) {
+        super(nama, tempatLahir, tglLahir, alamat, id);
         this.asalPerusahaan = asalPerusahaan;
         this.sandi = sandi;
-        this.IdPenyedia = IdPenyedia;
         daftarBarang = new Barang[maxBarang];
         this.jmlBarang = 0;
         
@@ -37,7 +35,7 @@ public class Penyedia extends Orang {
     
     public void createBarang(String nmBarang, String mrkBarang) {
        if (jmlBarang < maxBarang){
-           daftarBarang[jmlBarang] = new Barang(nmBarang, mrkBarang, IdPenyedia, jmlBarang);
+           daftarBarang[jmlBarang] = new Barang(nmBarang, mrkBarang, idBarang, jmlBarang);
            jmlBarang++;
        }
     }
@@ -45,10 +43,7 @@ public class Penyedia extends Orang {
     public String getAsalPerusahaan () {
         return asalPerusahaan;
     }
-    
-    public long getIdPenyedia() {
-        return IdPenyedia;
-    }
+ 
     
     public String getSandi() {
         return sandi;

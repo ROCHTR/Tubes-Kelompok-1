@@ -10,20 +10,13 @@
  */
 public class Petugas extends Orang {
     private Barang[] daftarBarang;
-    private long id;
     private String pass;
 
     public Petugas(String nama, String tempatLahir, String tglLahir, String alamat, long id,String pass) {
-        super(nama, tempatLahir, tglLahir, alamat);
-        this.id = id;
+        super(nama, tempatLahir, tglLahir, alamat, id);
         this.pass = pass;
     }
     
-    
-    
-    public long getId(){
-        return id;
-    }
     
     public String getPass(){
         return pass;

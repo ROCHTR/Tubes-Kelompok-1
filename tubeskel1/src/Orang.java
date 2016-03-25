@@ -14,12 +14,14 @@ public abstract class Orang {
     private String tempatLahir;
     private String tglLahir;
     private String alamat;
+    long id;
     
-    public Orang(String nama,String tempatLahir,String tglLahir, String alamat){
+    public Orang(String nama,String tempatLahir,String tglLahir, String alamat, long id){
         setNama(nama);
         setTempatLahir(tempatLahir);
         setTglLahir(tglLahir);
         setAlamat(alamat);
+        setId(id);
     }
     public void setNama(String nama) {
         this.nama = nama;
@@ -39,6 +41,14 @@ public abstract class Orang {
 
     public void setTglLahir(String tglLahir) {
         this.tglLahir = tglLahir;
+    }
+    
+    public long getId(){
+        return id;
+    }
+    
+    public void setId(long id){
+        this.id = id;
     }
 
     public String getAlamat() {
