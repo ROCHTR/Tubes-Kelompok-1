@@ -12,11 +12,14 @@ public class Petugas extends Orang {
     private Barang[] daftarBarang;
     private long id;
     private String pass;
-    
-    public Petugas (long id, String pass) {
-        this.id=id;
-        this.pass=pass;
+
+    public Petugas(String nama, String tempatLahir, String tglLahir, String alamat, long id,String pass) {
+        super(nama, tempatLahir, tglLahir, alamat);
+        this.id = id;
+        this.pass = pass;
     }
+    
+    
     
     public long getId(){
         return id;

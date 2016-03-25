@@ -15,15 +15,25 @@ public class Penyedia extends Orang {
     private long IdPenyedia;
     private int maxBarang;
     private int jmlBarang;
-    
-    
-    public Penyedia (String asalPerusahaan, long IdPenyedia, String sandi, int maxBarang){
-        this.asalPerusahaan=asalPerusahaan;
-        this.IdPenyedia=IdPenyedia;
-        this.sandi=sandi;
+
+    public Penyedia(String nama, String tempatLahir, String tglLahir, String alamat,String asalPerusahaan, long IdPenyedia,String sandi ) {
+        super(nama, tempatLahir, tglLahir, alamat);
+        this.asalPerusahaan = asalPerusahaan;
+        this.sandi = sandi;
+        this.IdPenyedia = IdPenyedia;
         daftarBarang = new Barang[maxBarang];
-        jmlBarang=0;
+        this.jmlBarang = 0;
+        
     }
+    
+    
+//    public Penyedia (String asalPerusahaan, long IdPenyedia, String sandi, int maxBarang){
+//        this.asalPerusahaan=asalPerusahaan;
+//        this.IdPenyedia=IdPenyedia;
+//        this.sandi=sandi;
+//        daftarBarang = new Barang[maxBarang];
+//        jmlBarang=0;
+//    }
     
     public void createBarang(String nmBarang, String mrkBarang) {
        if (jmlBarang < maxBarang){
@@ -48,7 +58,11 @@ public class Penyedia extends Orang {
         return daftarBarang[jmlBarang];
     }
     
-    public void removeBarang (Barang b){
-        if 
+    public void removeBarang (int indeks){
+        for (int i = indeks+1; i < this.jmlBarang; i++) {
+            daftarBarang[i-1] = daftarBarang[i];
+            
+        }
+        this.jmlBarang--;
     }
 }
