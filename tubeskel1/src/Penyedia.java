@@ -58,7 +58,11 @@ public class Penyedia extends Orang {
         return daftarBarang[jmlBarang];
     }
     
-    public void removeBarang (Barang b){
-        
+    public void removeBarang (int indeks){
+        for (int i = indeks+1; i < this.jmlBarang; i++) {
+            daftarBarang[i-1] = daftarBarang[i];
+            
+        }
+        this.jmlBarang--;
     }
 }
