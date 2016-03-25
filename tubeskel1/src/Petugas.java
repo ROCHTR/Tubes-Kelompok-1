@@ -13,9 +13,10 @@ public class Petugas extends Orang {
     private long id;
     private String pass;
 
-    public Petugas(String nama, String tempatLahir, String tglLahir, String alamat, long id) {
+    public Petugas(String nama, String tempatLahir, String tglLahir, String alamat, long id,String pass) {
         super(nama, tempatLahir, tglLahir, alamat);
         this.id = id;
+        this.pass = pass;
     }
     
     
