@@ -1,3 +1,5 @@
+package Model;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,6 +19,11 @@ public class Barang {
     public Barang (String nmBarang, String mrkBarang, long idBarang, int jmlBarang){
         setNmBarang(nmBarang);
         setIdBarang(idBarang);
+        setJmlBarang(jmlBarang);
+        setMrkBarang(mrkBarang);
+    }
+    public Barang (String nmBarang, String mrkBarang, int jmlBarang){
+        setNmBarang(nmBarang);
         setJmlBarang(jmlBarang);
         setMrkBarang(mrkBarang);
     }

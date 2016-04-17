@@ -1,3 +1,5 @@
+package Model;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -16,9 +18,10 @@ public class Aplikasi2 {
 
     ArrayList<Orang> daftarOrang = new ArrayList<>();
     ArrayList<Gudang> daftarGudang = new ArrayList<>();
+    
 
-    public void addPenyedia(String nama, String tempatLahir, String tglLahir, String alamat, String asalPerusahaan, long IdPenyedia, String sandi) {
-        Penyedia py = new Penyedia(nama, tempatLahir, tglLahir, alamat, asalPerusahaan, IdPenyedia, sandi);
+    public void addPenyedia(String nama, String tempatLahir, String tglLahir, String alamat,String asalPerusahaan, long id,String sandi,int maxBarang ) {
+        Penyedia py = new Penyedia(nama, tempatLahir, tglLahir, alamat, asalPerusahaan,id, sandi,maxBarang);
         daftarOrang.add(py);
     }
 
@@ -119,6 +122,10 @@ public class Aplikasi2 {
             System.out.println("4. Remove Penyedia");
             System.out.println("5. Remove Petugas ");
             System.out.println("6. Remove Gudang");
+            System.out.println("7. Create Barang");
+            System.out.println("8. Remove Gudang");
+            System.out.println("9. Add Barang to Gudang");
+            System.out.println("10. Remove Barang from Gudang");
             System.out.println("Masukkan Pilihan : ");nomor = inputan.nextInt();
             switch (nomor) {
                 case 1: 
@@ -130,7 +137,8 @@ public class Aplikasi2 {
                     System.out.print("Masukkan Asal Perusahaan : "); asalPerusahaan = inputan.next();
                     System.out.print("Masukkan ID : "); id = inputan.nextLong();
                     System.out.print("Masukkan Pass : "); pass = inputan.next();
-                    addPenyedia(nama, tempatLahir, tglLahir, alamat, asalPerusahaan, id, pass);
+                    System.out.print("Masukkan Max Suply : "); maxCap = inputan.nextInt();
+                    addPenyedia(nama, tempatLahir, tglLahir, alamat, asalPerusahaan, id, pass,maxCap);
                     break;
                     
                 case 2:
@@ -158,6 +166,9 @@ public class Aplikasi2 {
                 case 6:
                     System.out.println("Indeks Gudang yang ingin dihapus : "); indeks = inputan.nextInt();
                     delGudang(indeks);
+//                case7:
+//                    for()
+//                    System.out.println("");
             }
         }
     }

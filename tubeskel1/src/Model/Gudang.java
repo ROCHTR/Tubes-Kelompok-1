@@ -1,3 +1,8 @@
+package Model;
+
+
+import java.util.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,26 +15,26 @@
  */
 public class Gudang {
 
-    private Barang[] daftarBarang;
+    private ArrayList<Barang> daftarBarang;
     // private char[] blok;
     private int maxCapacity;
     private int jumlah;
 
     public Gudang(int maxCapacity) {
-        daftarBarang = new Barang[maxCapacity];
-        jumlah = 0;
-
+        this.maxCapacity = maxCapacity;
+        daftarBarang = new ArrayList<>();
+        this.jumlah=0;
     }
 
     public void addBarang(Barang b) {
         if (jumlah < maxCapacity) {
-            daftarBarang[jumlah] = b;
+            daftarBarang.add(b);
             jumlah++;
         }
     }
 
     public Barang getBarang(int indeks) {
-        return daftarBarang[indeks];
+        return daftarBarang.get(indeks);
     }
 
     public void removeBarang(int indeks) {
@@ -47,10 +52,11 @@ public class Gudang {
 //        }
 //
 //    }
-        for (int i = indeks+1; i < this.jumlah; i++) {
-            daftarBarang[i-1] = daftarBarang[i];
-            
-        }
+//        for (int i = indeks+1; i < this.jumlah; i++) {
+//            daftarBarang[i-1] = daftarBarang[i];
+//            
+//        }
+        daftarBarang.remove(indeks);
         this.jumlah--;
 
         }
