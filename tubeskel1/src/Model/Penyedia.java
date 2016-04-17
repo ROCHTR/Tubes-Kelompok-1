@@ -1,3 +1,8 @@
+package Model;
+
+
+import java.util.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,19 +14,20 @@
  * @author MuhammadAswan
  */
 public class Penyedia extends Orang {
-    Barang[] daftarBarang;
+//    Barang[] daftarBarang;
+    private List<Barang> daftarBarang;
     private String asalPerusahaan;
     private String sandi;
     private int maxBarang;
     private int jmlBarang;
 
-    public Penyedia(String nama, String tempatLahir, String tglLahir, String alamat,String asalPerusahaan, long id,String sandi ) {
+    public Penyedia(String nama, String tempatLahir, String tglLahir, String alamat,String asalPerusahaan, long id,String sandi,int maxBarang ) {
         super(nama, tempatLahir, tglLahir, alamat, id);
         this.asalPerusahaan = asalPerusahaan;
         this.sandi = sandi;
-        daftarBarang = new Barang[maxBarang];
+        daftarBarang = new ArrayList<>();
         this.jmlBarang = 0;
-        
+        this.maxBarang = maxBarang;
     }
     
     
@@ -33,9 +39,9 @@ public class Penyedia extends Orang {
 //        jmlBarang=0;
 //    }
     
-    public void createBarang(String nmBarang, String mrkBarang) {
+    public void createBarang(String nmBarang, String mrkBarang,long idBarang) {
        if (jmlBarang < maxBarang){
-           daftarBarang[jmlBarang] = new Barang(nmBarang, mrkBarang, idBarang, jmlBarang);
+           daftarBarang.add(new Barang(nmBarang, mrkBarang, idBarang, jmlBarang));
            jmlBarang++;
        }
     }
@@ -49,15 +55,12 @@ public class Penyedia extends Orang {
         return sandi;
     }
     
-    public Barang getBarang(int jmlBarang){
-        return daftarBarang[jmlBarang];
+    public Barang getBarang(int indeks){
+        return daftarBarang.get(indeks);
     }
     
     public void removeBarang (int indeks){
-        for (int i = indeks+1; i < this.jmlBarang; i++) {
-            daftarBarang[i-1] = daftarBarang[i];
-            
-        }
+        daftarBarang.remove(indeks);
         this.jmlBarang--;
     }
 }
