@@ -48,4 +48,8 @@ public class Aplikasi {
             case 3: break;
         }
     }
+
+    public long createBarang(String nama, String merek, int jumlah) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
