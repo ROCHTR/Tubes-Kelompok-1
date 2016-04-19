@@ -1,6 +1,7 @@
 package Model;
 
 
+import Database.Database;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,8 +19,18 @@ public class Aplikasi2 {
 
     ArrayList<Orang> daftarOrang = new ArrayList<>();
     ArrayList<Gudang> daftarGudang = new ArrayList<>();
+    Database con;
+    Penyedia p;
     
-
+    
+    public long createBarang (String nmBarang, String mrkBarang, int jmlBarang){
+        p.createBarang(nmBarang, mrkBarang, jmlBarang);
+        int j = p.getJumlah();
+        return p.getBarang(j).getIdBarang();
+    }
+    public void updateBarang(Barang b) {
+        con.updateBarang(b);
+    }
     public void addPenyedia(String nama, String tempatLahir, String tglLahir, String alamat,String asalPerusahaan, long id,String sandi,int maxBarang ) {
         Penyedia py = new Penyedia(nama, tempatLahir, tglLahir, alamat, asalPerusahaan,id, sandi,maxBarang);
         daftarOrang.add(py);

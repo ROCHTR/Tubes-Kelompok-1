@@ -38,7 +38,9 @@ public class Penyedia extends Orang {
 //        daftarBarang = new Barang[maxBarang];
 //        jmlBarang=0;
 //    }
-    
+    public int getJumlah(){
+        return jmlBarang;
+    }
     public void createBarang(String nmBarang, String mrkBarang,long idBarang) {
        if (jmlBarang < maxBarang){
            daftarBarang.add(new Barang(nmBarang, mrkBarang, idBarang, jmlBarang));
