@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Model.Aplikasi;
+
 import Model.Aplikasi2;
 import View.Penyedia_Menu;
 import java.awt.event.ActionEvent;
@@ -38,7 +38,7 @@ public class ControllerPenyedia_Menu implements ActionListener, FocusListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(view.getBtnCreate())) {
-//            new ControllerInputPelanggan(model);
+            new ControllerPenyedia_Create(model, model.getPenyedia1());
            view.dispose();
         } else if (source.equals(view.getBtnHapus())) {
            // new ControllerInputPelanggan(model);

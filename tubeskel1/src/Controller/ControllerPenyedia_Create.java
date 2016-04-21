@@ -5,9 +5,10 @@
  */
 package Controller;
 
-import Model.Aplikasi;
+
 import Model.Aplikasi2;
 import Model.Barang;
+import Model.Penyedia;
 import View.Penyedia_Create;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,14 +25,13 @@ public class ControllerPenyedia_Create implements ActionListener, FocusListener{
     Penyedia_Create view;
     Barang b;
     
-    public ControllerPenyedia_Create(Aplikasi2 model){
+    public ControllerPenyedia_Create(Aplikasi2 model,Penyedia p){
         this.model = model;
         view = new Penyedia_Create();
         view.setVisible(true);
         view.addListener(this);
         this.b = null;
-        
-        this.view.getTfJumlah().addFocusListener(this);
+     
         this.view.getTfNama().addFocusListener(this);
         this.view.getTfKode().addFocusListener(this);
         this.view.getTfMerek().addFocusListener(this);
@@ -44,25 +44,30 @@ public class ControllerPenyedia_Create implements ActionListener, FocusListener{
         if(source.equals(view.getBtnCreate())){
             String nama =view.getNama();
             String merek = view.getMerek();
-            int jumlah = view.getJumlah();
+            long id = view.getKode();
+            
             
             if(b == null){
-                long idBarang = model.createBarang(nama,merek,jumlah);
-                view.showMessage(view,"ID Barang = "+idBarang);
+                long idBarang = model.createBarang(nama,merek,id);
+               
                 view.setNama("");
                 view.setMerek("");
-                view.setJumlah(0);
+                
                 
             }
             else{
                 b.setNmBarang(nama);
                 b.setMrkBarang(merek);
-                b.setJmlBarang(jumlah);
-                model.updateBarang(b);
-                JOptionPane.showMessageDialog(view," ID Barang "+b.getIdBarang()+" berhasil di update");
-                new Controller
+                b.setIdBarang(id);
+                model.createBarang(nama, merek, id);
+//                JOptionPane.showMessageDialog(view," ID Barang "+b.getIdBarang()+" berhasil di update");
+                new ControllerPetugas_Menu(model);
                 
             }
+        }
+        else if(source.equals(view.getBtnBack())){
+            new ControllerPenyedia_Menu(model);
+            view.dispose();
         }
         
         
@@ -75,7 +80,12 @@ public class ControllerPenyedia_Create implements ActionListener, FocusListener{
 
     @Override
     public void focusLost(FocusEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Object o = e.getSource();
+        if(o.equals(this.view.getTfNama())){
+            if(this.view.getTfNama().getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Isi Semua Field");
+            }
+        }
     }
     
 }
