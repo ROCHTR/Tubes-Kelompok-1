@@ -1,6 +1,9 @@
-package Driver;
+ package Driver;
 
 
+import Controller.ControllerAwal;
+import Controller.ControllerPenyedia_Menu;
+import Controller.ControllerPetugas_Menu;
 import Model.Aplikasi2;
 
 /*
@@ -16,7 +19,7 @@ import Model.Aplikasi2;
 public class Driver {
     public static void main(String[] args) {
          Aplikasi2 app = new Aplikasi2();
-         app.mainMenu();
+         ControllerAwal test = new ControllerAwal(app);
     }
 
 }

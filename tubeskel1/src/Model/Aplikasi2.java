@@ -20,11 +20,15 @@ public class Aplikasi2 {
     ArrayList<Orang> daftarOrang = new ArrayList<>();
     ArrayList<Gudang> daftarGudang = new ArrayList<>();
     Database con;
-    Penyedia p;
+    Penyedia p = new Penyedia("a","a","a","a","a", 0,"a", 0);
+    
+    public Penyedia getPenyedia1(){
+        return p;
+    }
     
     
-    public long createBarang (String nmBarang, String mrkBarang, int jmlBarang){
-        p.createBarang(nmBarang, mrkBarang, jmlBarang);
+    public long createBarang (String nmBarang, String mrkBarang, long id){
+        p.createBarang(nmBarang, mrkBarang, id);
         int j = p.getJumlah();
         return p.getBarang(j).getIdBarang();
     }

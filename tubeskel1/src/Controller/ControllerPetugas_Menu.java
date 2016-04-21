@@ -37,7 +37,7 @@ public class ControllerPetugas_Menu implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(view.getBtnTambah())) {
-//            new ControllerInputPelanggan(model);
+          //  new ControllerInputPelanggan(model);
            view.dispose();
         } else if (source.equals(view.getBtnHapus())) {
            // new ControllerInputPelanggan(model);
